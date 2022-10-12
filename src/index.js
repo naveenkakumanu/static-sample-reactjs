@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Login from './components/Login';
+import Home from './components/Home';
+import SiteCreation from './components/SiteCreation;';
+
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    {/* <Sample /> */}
+    
+    <Link to={"/site-creation"} className="navbar-brand">
+          Site Creation
+    </Link>
+    <Routes> 
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/site-creation" element={<SiteCreation />} />
+
+        {/* <Route exact path="/register" element={<Register />} /> */}
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
